@@ -1,0 +1,12 @@
+{
+  "name": "PulsionStats",
+  "version": "1.0.0",
+  "description": "Discord app for R6 stats in chat",
+  "main": "bot.js",
+  "author": "Nitratz",
+  "dependencies": {
+    "discord.io": "github:woor/discord.io#gateway_v6",
+    "request": "^2.83.0",
+    "winston": "^2.4.0"
+  }
+}
