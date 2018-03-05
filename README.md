@@ -1,3 +1,3 @@
 # PulsionStats
-![Pulsion](./pulsion.png =400x400)
+<img src="./pulsion.png" width="400" height="400">
 Rainbow Six Stats Bot for Discord
