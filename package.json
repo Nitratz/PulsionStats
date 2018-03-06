@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "discord.io": "github:woor/discord.io#gateway_v6",
+    "express": "^4.16.2",
     "request": "^2.83.0",
     "winston": "^2.4.0"
   }
