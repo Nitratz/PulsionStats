@@ -4,6 +4,9 @@
   "description": "Discord app for R6 stats in chat",
   "main": "bot.js",
   "author": "Nitratz",
+  "scripts": {
+    "start": "node bot.js"
+  },
   "dependencies": {
     "discord.io": "github:woor/discord.io#gateway_v6",
     "request": "^2.83.0",
