@@ -45,9 +45,9 @@ bot.on('message', function (message) {
                 break;
             case 'help':
                 message.channel.send(
-                    '!ping to test if the bot is working\n' +
-                    '!stats [player] [platform (PC / PS4 / XBOX)]' +
-                    '!mmr [player] [platform (PC / PS4 / XBOX)]');
+                    '!ping to test if the bot is working' +
+                    '\n!stats [player] [platform (PC / PS4 / XBOX)]' +
+                    '\n!mmr [player] [platform (PC / PS4 / XBOX)]');
                 break;
             case 'mmr':
                 getMmrForPlayer(message, pName, platform);
