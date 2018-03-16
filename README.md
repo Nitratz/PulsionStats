@@ -11,3 +11,6 @@ Simply copy this URL to your browser and add to your desired server ! :)
 
     https://discordapp.com/oauth2/authorize?client_id=420009702789742594&scope=bot
 
+## Screenshots
+ <img src="./StatsPlayer.png">
+ <img src="./MMRPlayer.png">
