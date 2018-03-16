@@ -45,8 +45,8 @@ bot.on('message', function (message) {
                 break;
             case 'help':
                 message.channel.send(
-                    'to trigger the bot, use \"!\" before commands' +
-                    '\nping to test if the bot is working' +
+                    'To trigger the bot, use \"!\" before commands' +
+                    '\n\nping   to test if the bot is working' +
                     '\nstats [player] [platform (PC / PS4 / XBOX)]' +
                     '\nmmr [player] [platform (PC / PS4 / XBOX)]');
                 break;
