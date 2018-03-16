@@ -51,7 +51,7 @@ bot.on('message', function (message) {
                     '\nmmr [player] [platform (PC / PS4 / XBOX)]');
                 break;
             case 'mmr':
-                getMmrForPlayer(message, pName, platform);
+                getMmrForPlayer(message, args[0], args[1]);
                 break;
             default:
                 message.channel.send('Command is not configured');
@@ -71,9 +71,9 @@ function getMmrForPlayer(message, pName, platform) {
                     let seasonNb = Object.keys(ranks.seasons).sort().pop()
                     let season = ranks.seasons[seasonNb];
                     message.channel.send(
-                        ':thumbsdown: Previous rank : ' + season.emea.prev_rating +
-                        '\nCurrent MMR : ' + precisionRound(season.emea.ranking.rating, 0) +
-                        '\n:thumbsup: Next Rank : ' + season.emea.next_rating);
+                        ':thumbsup: Next Rank : ' + season.emea.ranking.next_rating +
+                        '\n\n :smile: Current MMR : ' + precisionRound(season.emea.ranking.rating, 0) +
+                        '\n\n:thumbsdown: Previous Rank : ' + season.emea.ranking.prev_rating);
                 }
                 else
                     message.channel.send('An error has occured');
