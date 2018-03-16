@@ -43,12 +43,42 @@ bot.on('message', function (message) {
             case 'stats':
                 getStatsForPlayer(message, args[0], args[1]);
                 break;
+            case 'help':
+                message.channel.send(
+                    '!ping to test if the bot is working\n' +
+                    '!stats [player] [platform (PC / PS4 / XBOX)]' +
+                    '!mmr [player] [platform (PC / PS4 / XBOX)]');
+                break;
+            case 'mmr':
+                getMmrForPlayer(message, pName, platform);
+                break;
             default:
                 message.channel.send('Command is not configured');
                 break;
         }
     }
 });
+
+function getMmrForPlayer(message, pName, platform) {
+    if ((pName != null || pName !== undefined) &&
+        (platform != null || platform !== undefined)) {
+        platform = getPlatform(platform);
+        request.get(`https://api.r6stats.com/api/v1/players/${pName}/seasons?platform=${platform}`, {json: true},
+            function (err, res, ranks) {
+
+                if (!err && res.statusCode === 200) {
+                    let seasonNb = Object.keys(ranks.seasons).sort().pop()
+                    let season = ranks.seasons[seasonNb];
+                    message.channel.send(
+                        ':thumbsdown: Previous rank : ' + season.emea.prev_rating +
+                        '\nCurrent MMR : ' + precisionRound(season.emea.ranking.rating, 0) +
+                        '\n:thumbsup: Next Rank : ' + season.emea.next_rating);
+                }
+                else
+                    message.channel.send('An error has occured');
+            });
+    }
+}
 
 function getStatsForPlayer(message, pName, platform) {
     if ((pName != null || pName !== undefined) &&
@@ -66,7 +96,6 @@ function getStatsForPlayer(message, pName, platform) {
                             if (!err && res.statusCode === 200) {
                                 let seasonNb = Object.keys(ranks.seasons).sort().pop()
                                 let season = ranks.seasons[seasonNb];
-                                logger.info(season);
                                 const embed = new Discord.RichEmbed()
                                     .setTitle("Player statistics")
                                     .setAuthor(player.username, "https://ubisoft-avatars.akamaized.net/" + player.ubisoft_id + "/default_146_146.png")
