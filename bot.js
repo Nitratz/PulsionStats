@@ -21,6 +21,7 @@ logger.level = 'debug';
 
 
 let bot = new Discord.Client();
+logger.debug('Token is : ' + config.token)
 bot.login(config.token);
 
 bot.on('ready', function (evt) {
