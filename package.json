@@ -5,6 +5,8 @@
   "main": "bot.js",
   "author": "Nitratz",
   "scripts": {
+    "lint": "echo Lint!",
+    "prettify": "echo Prettify!",
     "start": "node bot.js"
   },
   "dependencies": {
